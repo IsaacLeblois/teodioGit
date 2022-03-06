@@ -1,0 +1,16 @@
+nav {
+    padding: 40px;
+    height: 90px;
+}
+
+.navlinks {
+    display: flex;
+    flex-direction: row;
+}
+
+.navlinks a {
+    border: solid;
+    width: 200px;
+    margin: 0 20px;
+    border-radius: 20px;
+}

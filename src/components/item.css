@@ -1,0 +1,22 @@
+.card {
+    width: 18rem;
+}
+
+.planeCards {
+    display: flex;
+    margin: 0 50px;
+    justify-content: space-around;
+}
+
+img {
+    width: 18rem;
+    height: 200px;
+}
+
+.btnPrice {
+    width: 200px;
+}
+
+.appContent {
+    height: 80vh;
+}
