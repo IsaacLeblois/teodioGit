@@ -8,10 +8,10 @@ const Navbar = () => {
     <div className="container-fluid">
       <Link className="navbar-brand" to="/">Hyperium</Link>
         <div className="navbar-nav navlinks">
-          <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
-          <Link className="nav-link" to="/promos">Promociones</Link>
-          <Link className="nav-link" to="/catalogo/1">Catalogo</Link>
-          <Link className="nav-link" to='/contacto'>Contacto</Link>
+          <Link className="nav-link" aria-current="page" to="/">Todos los aviones</Link>
+          <Link className="nav-link" to="/airbus">Airbus</Link>
+          <Link className="nav-link" to="/boeing">Boeing</Link>
+          <Link className="nav-link" to='/antonov'>Antonov</Link>
         </div>
       </div>
   </nav>

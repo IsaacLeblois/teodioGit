@@ -1,9 +1,13 @@
 import './App.css';
 import ItemListContainer from './components/itemListContainer';
 import ItemDetailContainer from './components/itemDetail/itemDetailContainer';
+import ItemAirbusContainer from './components/itemAirbusContainer';
+import ItemBoeingContainer from './components/itemBoeingContainer';
+import ItemAntonovContainer from './components/itemAntonovContainer';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
+import Item from './components/item';
 
 function App() {
   return (
@@ -12,10 +16,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={ <ItemListContainer greeting="Inicio" /> } />
-          <Route path="/promos" element={ <ItemListContainer greeting="Promociones" /> } />
-          <Route path="/catalogo/:id" element={ <ItemListContainer greeting="Catalogo" /> } />
-          <Route path="/contacto" element={ <ItemListContainer greeting="Contacto" /> } />
-          <Route path="/item/:id" element={ <ItemDetailContainer greeting="Item" /> } />
+          <Route path="/airbus" element={ <ItemAirbusContainer greeting="Airbus" /> } />
+          <Route path="/boeing" element={ <ItemBoeingContainer greeting="Boeing" /> } />
+          <Route path="/antonov" element={ <ItemAntonovContainer greeting="Antonov" /> } />
+          <Route path="/item/:id" element={ <ItemDetailContainer greeting="Detalles" /> } />
         </Routes>
         <Footer />
       </BrowserRouter>
