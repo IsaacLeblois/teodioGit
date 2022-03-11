@@ -1,9 +1,10 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import ItemList from './itemList'
 import "./item.css"
 
-const DataBase = () => [
+const DataBase = [
     {
         id: 1,
         name: "A380-800",

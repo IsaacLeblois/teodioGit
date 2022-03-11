@@ -1,24 +1,25 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import ItemDetail from './itemDetail'
 
-const DataBase = () => [
+const DataBase = [
     {
-        id: 1,
+        id: "1",
         name: "A380-800",
         manufacturer: "Airbus",
         price: 338.4,
         imgurl: "https://upload.wikimedia.org/wikipedia/commons/0/09/A6-EDY_A380_Emirates_31_jan_2013_jfk_%288442269364%29_%28cropped%29.jpg"
     },
     {
-        id: 2,
+        id: "2",
         name: "B747-8",
         manufacturer: "Boeing",
         price: 306.2,
         imgurl: "https://upload.wikimedia.org/wikipedia/commons/a/ab/D-ABYL_Lufthansa_B748_FRA_%2850549824683%29.jpg"
     },
     {
-        id: 3,
+        id: "3",
         name: "An124",
         manufacturer: "Antonov",
         price: 82.6,
@@ -26,19 +27,21 @@ const DataBase = () => [
     }
 ]
 
-function getData() {
+function getData(id) {
     return new Promise( (resolve, reject) => {
         setTimeout( () => {
-            resolve(DataBase)
+            let planeRequested = DataBase.find( plane => plane.id === id)
+            resolve(planeRequested)
+            })
         }, 2000)
-    })
 }
 
 function ItemDetailContainer(props) {
     const [plane, setPlane] = useState([])
+    const { id } = useParams()
 
     useEffect( () => {
-        let requestDatos = getData()
+        let requestDatos = getData(id)
 
         requestDatos
         .then(((datosResolve) => {
