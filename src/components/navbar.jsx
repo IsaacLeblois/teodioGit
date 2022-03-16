@@ -11,7 +11,8 @@ const Navbar = () => {
           <Link className="nav-link" aria-current="page" to="/">Todos los aviones</Link>
           <Link className="nav-link" to="/airbus">Airbus</Link>
           <Link className="nav-link" to="/boeing">Boeing</Link>
-          <Link className="nav-link" to='/antonov'>Antonov</Link>
+          <Link className="nav-link" to="/antonov">Antonov</Link>
+          <Link className="nav-link carrito" to="/cart">Tu carrito</Link>
         </div>
       </div>
   </nav>

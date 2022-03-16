@@ -8,21 +8,24 @@ import Navbar from './components/navbar';
 import Footer from './components/footer';
 import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
 import Item from './components/item';
+import { CartContextProvider } from './components/context/cartContext';
 
 function App() {
   return (
     <div className='App'>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={ <ItemListContainer greeting="Inicio" /> } />
-          <Route path="/airbus" element={ <ItemAirbusContainer greeting="Airbus" /> } />
-          <Route path="/boeing" element={ <ItemBoeingContainer greeting="Boeing" /> } />
-          <Route path="/antonov" element={ <ItemAntonovContainer greeting="Antonov" /> } />
-          <Route path="/item/:id" element={ <ItemDetailContainer greeting="Detalles" /> } />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <CartContextProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={ <ItemListContainer greeting="Inicio" /> } />
+            <Route path="/airbus" element={ <ItemAirbusContainer greeting="Airbus" /> } />
+            <Route path="/boeing" element={ <ItemBoeingContainer greeting="Boeing" /> } />
+            <Route path="/antonov" element={ <ItemAntonovContainer greeting="Antonov" /> } />
+            <Route path="/item/:id" element={ <ItemDetailContainer greeting="Detalles" /> } />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </CartContextProvider>
     </div>
   );
 }

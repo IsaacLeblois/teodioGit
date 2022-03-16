@@ -9,6 +9,7 @@ const DataBase = [
         name: "A380-800",
         manufacturer: "Airbus",
         price: 338.4,
+        stock: "1",
         imgurl: "https://upload.wikimedia.org/wikipedia/commons/0/09/A6-EDY_A380_Emirates_31_jan_2013_jfk_%288442269364%29_%28cropped%29.jpg"
     },
     {
@@ -16,6 +17,7 @@ const DataBase = [
         name: "B747-8",
         manufacturer: "Boeing",
         price: 306.2,
+        stock: "2",
         imgurl: "https://upload.wikimedia.org/wikipedia/commons/a/ab/D-ABYL_Lufthansa_B748_FRA_%2850549824683%29.jpg"
     },
     {
@@ -23,6 +25,7 @@ const DataBase = [
         name: "An124",
         manufacturer: "Antonov",
         price: 82.6,
+        stock: "3",
         imgurl: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Antonov_An-124-100_Ruslan%2C_Antonov_Airlines_JP6355463.jpg"
     }
 ]
@@ -58,6 +61,7 @@ function ItemDetailContainer(props) {
                 manufacturer={plane.manufacturer}
                 price={plane.price}
                 imgurl={plane.imgurl}
+                stock={plane.stock}
             />
         </div>
     )
