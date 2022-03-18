@@ -18,7 +18,7 @@ function ItemDetail(props) {
             <p className="card-text">{props.manufacturer}</p>
             <p className="precio">${props.price} millones de USD.</p>
         </div>
-        <ItemCount addItem={addItem} stock={props.stock} />
+        <ItemCount addItem={addToCart} stock={props.stock} />
     </div>
   )
 }
