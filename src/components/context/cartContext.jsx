@@ -11,7 +11,7 @@ export function CartContextProvider({ children }) {
     }
 
     return (
-        <CartContext.Provider value={ {addItem, itemsCart} }>
+        <CartContext.Provider value={ {addItem, itemsCart, clearCart} }>
             {children}
         </CartContext.Provider>
     )
