@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from '../itemCount/itemCount'
 import { useContext } from 'react'
 import CartContext from '../context/cartContext'
@@ -6,8 +6,11 @@ import CartContext from '../context/cartContext'
 function ItemDetail(props) {
   const { addItem } = useContext(CartContext)
 
+  const [ isInCart, setIsInCart ] = useState(false)
+
   function addToCart(qty){
     addItem(props, qty)
+    setIsInCart(true)
   }
 
   return (
@@ -18,7 +21,11 @@ function ItemDetail(props) {
             <p className="card-text">{props.manufacturer}</p>
             <p className="precio">${props.price} millones de USD.</p>
         </div>
-        <ItemCount addItem={addToCart} stock={props.stock} />
+        { isInCart ?
+            <button>Terminar compra</button>
+            :
+            <ItemCount addItem={addToCart} stock={props.stock} />
+        }
     </div>
   )
 }
