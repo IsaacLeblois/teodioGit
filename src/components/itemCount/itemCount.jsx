@@ -19,7 +19,7 @@ export default function ItemCount({stock, addToCart}) {
             <span className="m-3">{count}</span>
             <button onClick={suma}>  +  </button>
         </div>
-        <button onClick={addToCart} className="btn btn-danger m-2">Agregar al carrito</button>
+        <button onClick={()=>addToCart(count)} className="btn btn-danger m-2">Agregar al carrito</button>
         <p>Stock disponible: {stock}</p>
     </div>
     )

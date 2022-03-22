@@ -24,7 +24,7 @@ function ItemDetail(props) {
         { isInCart ?
             <button>Terminar compra</button>
             :
-            <ItemCount addItem={addToCart} stock={props.stock} />
+            <ItemCount addToCart={addToCart} stock={props.stock} />
         }
     </div>
   )
