@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import CartContext from '../context/cartContext'
 
 function ItemDetail(props) {
-  const { addItem } = useContext(CartContext)
+  const { addItem, clearCart } = useContext(CartContext)
 
   const [ isInCart, setIsInCart ] = useState(false)
 
