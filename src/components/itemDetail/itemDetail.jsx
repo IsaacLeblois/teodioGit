@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ItemCount from '../itemCount/itemCount'
 import { useContext } from 'react'
 import CartContext from '../context/cartContext'
+import { Link } from 'react-router-dom'
 
 function ItemDetail(props) {
   const { addItem, clearCart } = useContext(CartContext)
@@ -22,7 +23,7 @@ function ItemDetail(props) {
             <p className="precio">${props.price} millones de USD.</p>
         </div>
         { isInCart ?
-            <button>Terminar compra</button>
+            <Link to="/cart" >Terminar compra</Link>
             :
             <ItemCount addToCart={addToCart} stock={props.stock} />
         }

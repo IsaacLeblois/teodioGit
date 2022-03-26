@@ -22,12 +22,28 @@ export function CartContextProvider({ children }) {
         setItemsCart([])
     }
 
+    function countItemsinCart() {
+        let totalItems = 0;
+        itemsCart.forEach( item=> totalItems+= item.qty )
+        return totalItems
+    }
+
+    function getTotalPrice() {
+        let totalPrice = 0
+        itemsCart.forEach( item=> totalPrice += item.qty * item.price )
+        return totalPrice
+    }
+
     function isItemInCart(id) {
         return itemsCart.some( cadaitem => cadaitem.id === id)
     }
 
+    function removeItem(idDelete){
+        setItemsCart(itemsCart.filter( item=> item.id !== idDelete ))
+    }
+
     return (
-        <CartContext.Provider value={ {addItem, itemsCart, clearCart} }>
+        <CartContext.Provider value={ {addItem, itemsCart, clearCart, countItemsinCart, getTotalPrice, removeItem} }>
             {children}
         </CartContext.Provider>
     )
