@@ -7,8 +7,8 @@ import ItemAntonovContainer from './components/itemAntonovContainer';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import CartView from './components/cart/cart'
-import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
-import Item from './components/item';
+import PlaneListContainer from './components/firebase/planeListContainer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CartContextProvider } from './components/context/cartContext';
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
             <Route path="/antonov" element={ <ItemAntonovContainer greeting="Antonov" /> } />
             <Route path="/item/:id" element={ <ItemDetailContainer greeting="Detalles" /> } />
             <Route path="/cart" element={ <CartView greeting="Tu carrito" /> } />
+            <Route path="/fire" element={ <PlaneListContainer /> } />
           </Routes>
           <Footer />
         </BrowserRouter>
