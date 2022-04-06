@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { collection, doc, firebase, getDoc, getDocs, getFirestore } from "firebase/firestore"
+import { addDoc, collection, doc, firebase, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { async } from "@firebase/util";
 import { keyboard } from "@testing-library/user-event/dist/keyboard";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -30,7 +30,7 @@ export async function getAllPlanes(){
   const planesSnap = await getDocs(miColec)
 
   const result = planesSnap.docs.map( item => {
-    return { ...item.data, id: item.id }
+    return { ...item.data(), id: item.id }
   })
 
   return result
@@ -47,3 +47,21 @@ export async function getPlane(id){
 }
 
 // Obtener filtrado por categoria
+export async function getCategory(category){
+  const miColec = collection(db, "items")
+  const queryCategory = query(miColec, where("manufacturer", "==", category))
+  const planesSnap = await getDocs(queryCategory)
+
+
+  return planesSnap.docs.map(item => {
+    return {...item.data(), id: item.id}
+  })
+
+}
+
+export async function sendOrder(orderData){
+  const miColec = collection(db, "orders")
+  const orderDoc = await addDoc(miColec, orderData)
+  console.log(orderDoc.id)
+  return orderDoc.id
+}

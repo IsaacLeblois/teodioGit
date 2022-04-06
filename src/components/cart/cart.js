@@ -1,9 +1,30 @@
 import CartContext from "../context/cartContext"
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { sendOrder } from "../firebase/firebaseClient"
 
 function CartView() {
     const { removeItem, itemsCart, clearCart, getTotalPrice } = useContext(CartContext)
+    const [orderDone, setOrderDone] = useState(false)
+
+    function handleSendOrder(){
+        sendOrder({
+            items: itemsCart,
+            buyer: {nombre: "Isaac", email: "isaacleblois@gmail.com"}
+        })
+
+        let ordenRespuesta = sendOrder()
+        setOrderDone(ordenRespuesta)
+    }
+
+    if (orderDone) {
+        return (
+            <div className="container mt-5 mb-5">
+                <h1>¡Gracias!</h1>
+                <p>Eres muy importante para nosotros.</p>
+            </div>
+        )
+    }
 
     if(itemsCart.length === 0){
         return (
@@ -47,7 +68,8 @@ function CartView() {
                         })}
                     </tbody>
                 </table>
-                <button onClick={clearCart} className="btn btn-danger"> Vaciar carrito </button>
+                <button onClick={clearCart} className="btn btn-danger m-2"> Vaciar carrito </button>
+                <button onClick={handleSendOrder} className="btn btn-dark m-2"> Realizar pedido </button>
             </div>
         )
     }

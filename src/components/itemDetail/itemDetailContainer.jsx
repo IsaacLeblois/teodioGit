@@ -2,14 +2,14 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './itemDetail'
-import { getAllPlanes } from '../firebase/firebaseClient'
+import { getAllPlanes, getPlane } from '../firebase/firebaseClient'
 
 function ItemDetailContainer(props) {
     const [plane, setPlane] = useState([])
     const { id } = useParams()
 
     useEffect( () => {
-        let requestDatos = getAllPlanes(id)
+        let requestDatos = getPlane(id)
 
         requestDatos
         .then(((datosResolve) => {

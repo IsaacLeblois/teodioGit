@@ -11,10 +11,11 @@ function ItemListContainer(props) {
         let requestDatos = getAllPlanes()
 
         requestDatos
-        .then(((datosResolve) => {
+        .then( datosResolve => {
             setPlanes(datosResolve)
-        }), [])
-    })
+        }) 
+    }, [])
+
 
     return (
         <div className='appContent'>
