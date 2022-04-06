@@ -46,10 +46,10 @@ function ItemBoeingContainer(props) {
         let requestDatos = getData()
 
         requestDatos
-        .then(((datosResolve) => {
+        .then( datosResolve => {
             setPlanes(datosResolve)
-        }), [])
-    })
+        }) 
+    }, [])
 
     return (
         <div className='appContent'>
